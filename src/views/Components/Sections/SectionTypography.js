@@ -15,10 +15,11 @@ import Info from "components/Typography/Info.js";
 import Primary from "components/Typography/Primary.js";
 import Muted from "components/Typography/Muted.js";
 import Quote from "components/Typography/Quote.js";
-
+import Button from "components/CustomButtons/Button.js";
+import Popover from "@material-ui/core/Popover";
 import image1 from "assets/img/plat1.jpg";
 import image2 from "assets/img/plat2.jpeg";
-import image3 from "assets/img/plat3.jpg";
+import image3 from "assets/img/plat3.jpeg";
 import image4 from "assets/img/plat4.jpg";
 import image5 from "assets/img/plat5.jpg";
 import image6 from "assets/img/plat6.jpeg";
@@ -29,6 +30,7 @@ const useStyles = makeStyles(styles);
 
 export default function SectionTypography() {
   const classes = useStyles();
+  const [anchorElTop, setAnchorElTop] = React.useState(null);
   return (
     <div className={classes.section}>
       <div className={classes.container}>
@@ -41,7 +43,7 @@ export default function SectionTypography() {
         <div className={classes.space50} />
         <div id="images">
           <div className={classes.title}>
-            <h2>Plats</h2>
+            <h2>Menu</h2>
           </div>
           <br />
           <GridContainer>
@@ -90,7 +92,7 @@ export default function SectionTypography() {
             </GridItem>
             <GridItem xs={12} sm={2} className={classes.marginLeft}>
               <h4>Plat4</h4>
-              <img
+              <img onClick={event => setAnchorElTop(event.currentTarget)}
                 src={image5}
                 alt="..."
                 className={
@@ -101,10 +103,31 @@ export default function SectionTypography() {
                   classes.imgFluid
                 }
               />
+              <Popover
+              classes={{
+                paper: classes.popover
+              }}
+              open={Boolean(anchorElTop)}
+              anchorEl={anchorElTop}
+              onClose={() => setAnchorElTop(null)}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "center"
+              }}
+              transformOrigin={{
+                vertical: "bottom",
+                horizontal: "center"
+              }}
+            > 
+              <h3 className={classes.popoverHeader}>plat4</h3>
+              <div className={classes.popoverBody}>
+                contenu : salade pour le dessert.
+              </div>
+            </Popover>
             </GridItem>
             <GridItem xs={12} sm={2} className={classes.marginLeft}>
               <h4>Plat5</h4>
-              <img
+              <img onClick={event => setAnchorElTop(event.currentTarget)}
                 src={image6}
                 alt="..."
                 className={
@@ -115,6 +138,28 @@ export default function SectionTypography() {
                   classes.imgFluid
                 }
               />
+            
+            <Popover
+              classes={{
+                paper: classes.popover
+              }}
+              open={Boolean(anchorElTop)}
+              anchorEl={anchorElTop}
+              onClose={() => setAnchorElTop(null)}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "center"
+              }}
+              transformOrigin={{
+                vertical: "bottom",
+                horizontal: "center"
+              }}
+            >
+              <h3 className={classes.popoverHeader}>plat5</h3>
+              <div className={classes.popoverBody}>
+                contenu : salade pour le dessert.
+              </div>
+            </Popover>
             </GridItem>
           </GridContainer>
           <GridContainer />
@@ -124,3 +169,4 @@ export default function SectionTypography() {
     </div>
   );
 }
+

@@ -34,25 +34,23 @@ export default function WorkSection() {
     <div className={classes.section}>
       <GridContainer justify="center">
         <GridItem cs={12} sm={12} md={8}>
-          <h2 className={classes.title}>Réserver une table </h2>
-          <h4 className={classes.description}>remplir le formulaire pour la reservation .
+          <h2 className={classes.title}>Commander un menu </h2>
+          <h4 className={classes.description}>remplir le formulaire pour la commande  .
           </h4>
           <form>
             <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
-              <InputLabel className={classes.label}>
-                Date de reservation
-              </InputLabel>
-              <br />
-              <FormControl fullWidth>
-                <Datetime
-                  inputProps={{ placeholder: "Date de reservation" }}
-                />
-              </FormControl>
+            <CustomInput
+            labelText="Name & prenom"
+            id="name"
+            formControlProps={{
+              fullWidth: true
+            }}
+          />
             </GridItem>
               <GridItem xs={12} sm={12} md={6}>
               <InputLabel ref={inputLabel} id="demo-simple-select-outlined-label">
-                  Nombre personne
+                  Liste des menus
                 </InputLabel>
                 <Select
                   labelId="demo-simple-select-outlined-label"
@@ -62,16 +60,16 @@ export default function WorkSection() {
                   labelWidth={labelWidth}
                 >
                 <MenuItem value="">
-                    <em>Table</em>
+                    <em>menu</em>
                   </MenuItem>
-                  <MenuItem value={10}>1</MenuItem>
-                  <MenuItem value={20}>2</MenuItem>
-                  <MenuItem value={30}>3</MenuItem>
+                  <MenuItem value={10}>salade</MenuItem>
+                  <MenuItem value={20}>routie</MenuItem>
+                  <MenuItem value={30}>sbagetti</MenuItem>
                 </Select>
                 </GridItem>
               <GridContainer justify="center">
                 <GridItem xs={12} sm={12} md={4} className={classes.textCenter}>
-                  <Button color="primary">reserver</Button>
+                  <Button color="primary">Commander</Button>
                 </GridItem>
               </GridContainer>
             </GridContainer>

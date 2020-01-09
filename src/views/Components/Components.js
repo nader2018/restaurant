@@ -5,6 +5,7 @@ import classNames from "classnames";
 import { Link } from "react-router-dom";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
+import { Apps, CloudDownload } from "@material-ui/icons";
 // @material-ui/icons
 // core components
 import Header from "components/Header/Header.js";
@@ -13,7 +14,7 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
 import Parallax from "components/Parallax/Parallax.js";
-// sections for this page
+// sections for this page 
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import SectionBasics from "./Sections/SectionBasics.js";
 import SectionNavbars from "./Sections/SectionNavbars.js";
@@ -29,6 +30,7 @@ import SectionExamples from "./Sections/SectionExamples.js";
 import SectionDownload from "./Sections/SectionDownload.js";
 
 import styles from "assets/jss/material-kit-react/views/components.js";
+import { Icon } from "@material-ui/core";
 
 const useStyles = makeStyles(styles);
 
@@ -38,7 +40,7 @@ export default function Components(props) {
   return (
     <div>
       <Header
-        brand="GLSIB"
+        brand="RS"
         rightLinks={<HeaderLinks />}
         fixed
         color="transparent"
@@ -64,16 +66,19 @@ export default function Components(props) {
       </Parallax>
 
       <div className={classNames(classes.main, classes.mainRaised)}>
-        <SectionTypography />
-        <SectionJavascript />
-        <SectionCarousel />
-        <GridItem md={12} className={classes.textCenter}>
+      <GridItem md={12} className={classes.textCenter}>
           <Link to={"/login-page"} className={classes.link}>
-            <Button color="primary" size="lg" simple>
+         
+            <Button  buttonIcon={Apps}  color="primary" lock  size="lg" simple>
               Connecter
             </Button>
           </Link>
         </GridItem>
+        <SectionTypography />
+        <SectionCarousel />
+        <SectionJavascript />
+        
+        
 
         <SectionExamples /> 
       </div>
