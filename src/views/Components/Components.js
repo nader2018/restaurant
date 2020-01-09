@@ -76,7 +76,6 @@ export default function Components(props) {
         </GridItem>
         <SectionTypography />
         <SectionCarousel />
-        <SectionJavascript />
         
         
 

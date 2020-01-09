@@ -37,21 +37,16 @@ export default function WorkSection() {
           <h2 className={classes.title}>Commander un menu </h2>
           <h4 className={classes.description}>remplir le formulaire pour la commande  .
           </h4>
+          <br />
+                <br /><br />
+                <br />
           <form>
             <GridContainer>
-            <GridItem xs={12} sm={12} md={6}>
-            <CustomInput
-            labelText="Name & prenom"
-            id="name"
-            formControlProps={{
-              fullWidth: true
-            }}
-          />
-            </GridItem>
               <GridItem xs={12} sm={12} md={6}>
               <InputLabel ref={inputLabel} id="demo-simple-select-outlined-label">
                   Liste des menus
                 </InputLabel>
+                <br />
                 <Select
                   labelId="demo-simple-select-outlined-label"
                   id="demo-simple-select-outlined"
@@ -68,7 +63,11 @@ export default function WorkSection() {
                 </Select>
                 </GridItem>
               <GridContainer justify="center">
+              <br />
+                <br />
                 <GridItem xs={12} sm={12} md={4} className={classes.textCenter}>
+                <br />
+                <br />
                   <Button color="primary">Commander</Button>
                 </GridItem>
               </GridContainer>

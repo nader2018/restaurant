@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useState} from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -27,7 +27,9 @@ import image from "assets/img/bg7.jpg";
 const useStyles = makeStyles(styles);
 
 export default function LoginPage(props) {
-  const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
+  const [cardAnimaton, setCardAnimation] = useState("cardHidden");
+
+  const [showLogin, setShowLogin] = useState(true);
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
@@ -54,9 +56,15 @@ export default function LoginPage(props) {
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={4}>
               <Card className={classes[cardAnimaton]}>
-                <form className={classes.form}>
+                
+              {showLogin ?
+              <form className={classes.form}>
                   <CardHeader color="primary" className={classes.cardHeader}>
-                    <h4>Login</h4>
+                    <div>
+                    <Button onClick={()=>setShowLogin(true)}>Login</Button>
+                    <Button onClick={()=>setShowLogin(false)}>Signup</Button>
+                    
+                    </div>
                     <div className={classes.socialLine}>
                       <Button
                         justIcon
@@ -143,9 +151,142 @@ export default function LoginPage(props) {
                       Connecter
                     </Button>
                   </CardFooter>
+                 
                 </form>
-              </Card>
-            </GridItem>
+              :
+                <form className={classes.form}>
+                
+                <CardHeader color="primary" className={classes.cardHeader}>
+                <div>
+                <Button onClick={()=>setShowLogin(true)}>Login</Button>
+                <Button onClick={()=>setShowLogin(false)}>Signup</Button>
+                
+                </div>
+                <div className={classes.socialLine}>
+                  <Button
+                    justIcon
+                    href="#pablo"
+                    target="_blank"
+                    color="transparent"
+                    onClick={e => e.preventDefault()}
+                  >
+                    <i className={"fab fa-twitter"} />
+                  </Button>
+                  <Button
+                    justIcon
+                    href="#pablo"
+                    target="_blank"
+                    color="transparent"
+                    onClick={e => e.preventDefault()}
+                  >
+                    <i className={"fab fa-facebook"} />
+                  </Button>
+                  <Button
+                    justIcon
+                    href="#pablo"
+                    target="_blank"
+                    color="transparent"
+                    onClick={e => e.preventDefault()}
+                  >
+                    <i className={"fab fa-google-plus-g"} />
+                  </Button>
+                </div>
+              </CardHeader>
+                <CardBody>
+                  <CustomInput
+                    labelText="First Name..."
+                    id="first"
+                    formControlProps={{
+                      fullWidth: true
+                    }}
+                    inputProps={{
+                      type: "text",
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <People className={classes.inputIconsColor} />
+                        </InputAdornment>
+                      )
+                    }}
+                  />
+                  <CustomInput
+                    labelText="Last Name..."
+                    id="last"
+                    formControlProps={{
+                      fullWidth: true
+                    }}
+                    inputProps={{
+                      type: "text",
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <People className={classes.inputIconsColor} />
+                        </InputAdornment>
+                      )
+                    }}
+                  />
+                  <CustomInput
+                    labelText="Adresse"
+                    id="adresse"
+                    formControlProps={{
+                      fullWidth: true
+                    }}
+                    inputProps={{
+                      type: "text"
+                    }}
+                  />
+                  <CustomInput
+                    labelText="Telephone"
+                    id="tel"
+                    formControlProps={{
+                      fullWidth: true
+                    }}
+                    inputProps={{
+                      type: "text"
+                    }}
+                  />
+                  <CustomInput
+                    labelText="Email..."
+                    id="email"
+                    formControlProps={{
+                      fullWidth: true
+                    }}
+                    inputProps={{
+                      type: "email",
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <Email className={classes.inputIconsColor} />
+                        </InputAdornment>
+                      )
+                    }}
+                  />
+                  <CustomInput
+                    labelText="Password"
+                    id="pass"
+                    formControlProps={{
+                      fullWidth: true
+                    }}
+                    inputProps={{
+                      type: "password",
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <Icon className={classes.inputIconsColor}>
+                            lock_outline
+                          </Icon>
+                        </InputAdornment>
+                      ),
+                      autoComplete: "off"
+                    }}
+                  />
+                </CardBody>
+               
+                <CardFooter className={classes.cardFooter}>
+                  <Button simple color="primary" size="lg">
+                    Enregistrer
+                  </Button>
+                </CardFooter>
+              </form>
+              }
+                  </Card>
+          </GridItem>
           </GridContainer>
         </div>
         <Footer whiteFont />
